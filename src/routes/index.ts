@@ -2,6 +2,14 @@ import { Router } from 'express';
 
 const routes = Router();
 
-routes.get('/', (request, response) => response.status(200).json({ message: 'Hello World' }));
+routes.post('/', (request, response) => {
+  const { name, email } = request.body;
+
+  const user = {
+    name, 
+    email
+  }
+
+  return response.status(200).json(user)});
 
 export default routes;
